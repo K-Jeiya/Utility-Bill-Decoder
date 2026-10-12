@@ -10,7 +10,7 @@ import pandas as pd
 import streamlit as st
 
 from bill_extractor import extract_bill, expected_provider
-from config import PROJECT_ROOT, load_settings
+from config import PROJECT_ROOT, load_settings, GUIDE_SAMPLE_QUESTIONS
 from llm_client import GeminiClient
 from question_answerer import answer_questions
 
@@ -36,11 +36,16 @@ template_path = PROJECT_ROOT / "data" / "test" / "csv" / "level2.csv"
 @st.cache_data
 def load_official_questions(path_string: str):
     path = Path(path_string)
+
+    # Public demo may not include the private competition CSV.
+    if not path.is_file():
+        return GUIDE_SAMPLE_QUESTIONS
+
     with path.open("r", encoding="utf-8-sig", newline="") as f:
         rows = list(csv.DictReader(f))
 
     if not rows:
-        return []
+        return GUIDE_SAMPLE_QUESTIONS
 
     first_bill_id = rows[0]["bill_id"]
     return [
@@ -127,6 +132,12 @@ if run_decoder and uploaded_file:
         st.session_state.pop("demo_qa_issues", None)
 
         questions = load_official_questions(str(template_path))
+
+        if not template_path.is_file():
+            st.info(
+                "Public demo mode: using 2 sample questions. "
+                "The private competition question template is not included."
+            )
 
         if not questions:
             st.warning(
