@@ -29,8 +29,18 @@ IMPLEMENTED_PROVIDERS = {"google"}
 # The two sample questions printed in the guide (section 6.2). Only used by the
 # optional --demo-questions flag on training bills; never used for test CSVs.
 GUIDE_SAMPLE_QUESTIONS = [
-    ("Q1", "How much of my bill is taxes?"),
-    ("Q2", "How many months in my history went above 200 units?"),
+    ("Q1", "Which electricity provider issued this bill?"),
+    ("Q2", "What is the bill month?"),
+    ("Q3", "What is the bill issue date?"),
+    ("Q4", "What is the payment due date?"),
+    ("Q5", "How many electricity units were consumed?"),
+    ("Q6", "What are the previous and current meter readings?"),
+    ("Q7", "What is the total amount of charges before taxes?"),
+    ("Q8", "What is the total amount of taxes?"),
+    ("Q9", "What is the current bill amount?"),
+    ("Q10", "How much are the outstanding arrears?"),
+    ("Q11", "What is the payable amount before the due date?"),
+    ("Q12", "What is the payable amount after the due date?"),
 ]
 
 
