@@ -1,51 +1,137 @@
-# Utility Bill Decoder
 
-An AI-powered application that extracts information from electricity bill images and answers bill-related questions.
+# ⚡ Utility Bill Decoder
 
-Built for the Women Tech Quest 2026 Build with AI challenge, with additional improvements to the interactive application.
+**An AI-powered application for extracting electricity bill information and answering bill-related questions.**
 
-## Features
+<p align="center">
+  <a href="https://utility-bill-decoder.streamlit.app/">
+    <img src="https://img.shields.io/badge/Live%20Demo-Open%20App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Live Demo">
+  </a>
+  <a href="https://github.com/K-Jeiya/Utility-Bill-Decoder">
+    <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github" alt="GitHub Repository">
+  </a>
+</p>
 
-- Supports K-Electric (KE), LESCO and IESCO electricity-bill images.
-- Extracts bill information into structured JSON.
-- Answers bill-related questions using extracted information.
-- Validates extracted data and flags potential inconsistencies.
-- Provides an interactive Streamlit web interface.
-- Supports a command-line workflow for processing bills.
-- Uses Google Gemini for vision-based extraction and question answering.
+---
 
-## Tech Stack
+## 📌 Overview
 
-- Python 3.12
-- Google Gemini API
-- Streamlit
-- Pandas
-- Pillow
-- Python CSV and JSON libraries
+Utility Bill Decoder is an AI-powered web application that analyzes electricity bill images and converts the information into structured, understandable outputs.
 
-## Project Structure
+The project was developed as part of the **Women Tech Quest 2026 — Build with AI** challenge.
 
-- `source/app.py` — Streamlit web interface
-- `source/main.py` — command-line workflow
-- `source/bill_extractor.py` — bill information extraction
-- `source/question_answerer.py` — bill-related question answering
-- `source/calculations.py` — calculations derived from extracted data
-- `source/validators.py` — data validation and normalisation
-- `source/llm_client.py` — Gemini API integration
-- `source/tests/` — offline automated tests
-- `source/requirements.txt` — Python dependencies
-- `source/README.md` — detailed setup and usage instructions
+## ✨ Features
 
-## Run Locally
+- 📄 **Bill Image Processing** — Analyze uploaded electricity bill images.
+- 🤖 **AI-Powered Extraction** — Extract relevant billing information using Google Gemini.
+- 📊 **Structured Outputs** — Organize extracted information into readable results.
+- 💬 **Question Answering** — Answer questions about bill details.
+- 🧮 **Billing Calculations** — Process consumption, charges, taxes, arrears, and payable amounts.
+- 🌐 **Live Demo** — Access the application online through Streamlit.
 
-Python 3.12 is recommended.
+## 🖥️ Live Demo
 
-1. Clone this repository.
-2. Open a terminal in the `source` directory.
-3. Create and activate a virtual environment.
-4. Install the dependencies:
+**[Launch Utility Bill Decoder →](https://utility-bill-decoder.streamlit.app/)**
 
-   ```powershell
-   py -3.12 -m venv .venv
-   .\.venv\Scripts\Activate.ps1
-   pip install -r requirements.txt
+Upload a supported electricity bill image to explore the extraction and question-answering features.
+
+> **Note:** The public demo uses sample questions. The private competition dataset is not included in the public repository.
+
+## 🔄 How It Works
+
+1. Upload an electricity bill image.
+2. The application processes the image using an AI model.
+3. Relevant billing details are extracted.
+4. Extracted information is validated and calculated.
+5. Results and answers to bill-related questions are displayed.
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| Python | Application logic and data processing |
+| Google Gemini | AI-powered bill analysis |
+| Streamlit | Web application interface |
+| Git & GitHub | Version control and source code hosting |
+| Streamlit Community Cloud | Application deployment |
+
+## 📂 Project Structure
+
+```text
+Utility-Bill-Decoder/
+├── source/
+│   ├── app.py
+│   ├── bill_extractor.py
+│   ├── cache.py
+│   ├── calculations.py
+│   ├── config.py
+│   ├── llm_client.py
+│   ├── main.py
+│   ├── make_submission.py
+│   ├── prompts.py
+│   ├── question_answerer.py
+│   ├── validators.py
+│   ├── requirements.txt
+│   └── tests/
+├── .gitignore
+└── README.md
+```
+
+## 🚀 Run Locally
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/K-Jeiya/Utility-Bill-Decoder.git
+cd Utility-Bill-Decoder
+```
+
+### 2. Create a virtual environment
+
+```bash
+python -m venv .venv
+```
+
+Activate it in Windows PowerShell:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+### 3. Install dependencies
+
+```bash
+cd source
+pip install -r requirements.txt
+```
+
+### 4. Configure API credentials
+
+Set up the required Google Gemini API key and model configuration according to the project's configuration requirements.
+
+**Never commit API keys, credentials, or private datasets to GitHub.**
+
+### 5. Run the application
+
+```bash
+streamlit run app.py
+```
+
+## 🔐 Security & Privacy
+
+- Keep API credentials private.
+- Do not upload sensitive personal information to a public demo.
+- Keep private competition datasets out of the public repository.
+
+## 👩‍💻 Author
+
+**Jeiya Kumari**
+
+- GitHub: [K-Jeiya](https://github.com/K-Jeiya)
+- LinkedIn: [Jeiya Kumari](https://linkedin.com/in/jeiyakumari/)
+
+---
+
+<p align="center">
+  Built with Python, AI, and Streamlit.
+</p>
